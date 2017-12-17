@@ -33,8 +33,11 @@ def build_part1_RNN(window_size):
 ### TODO: return the text input with only ascii lowercase and the punctuation given below included.
 def cleaned_text(text):
     punctuation = ['!', ',', '.', ':', ';', '?']
-    for p in punctuation:
-        text = text.replace(p, ' ')
+    chars = set(text)
+    allowed = {'a','b','c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+           't', 'u', 'v', 'w', 'x', 'y', 'z',' ', '!', ',', '.', ':', ';', '?'}
+    for l in (chars - allowed):
+        text = text.replace(l, ' ')
 
     return text
 
